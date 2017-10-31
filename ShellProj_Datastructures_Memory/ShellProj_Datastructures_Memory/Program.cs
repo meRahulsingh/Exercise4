@@ -15,7 +15,7 @@ namespace ShellProj_Datastructures_Memory
         static void Main()
         {
             bool run = true;
-            while (true)
+            while (run == true)
             {
 
                 Console.WriteLine("Please navigate through the menu by inputting the number \n(1, 2, 3 ,4, 0) of your choice"
@@ -75,14 +75,75 @@ namespace ShellProj_Datastructures_Memory
              * As a default case, tell them to use only + or -
              * Below you can see some inspirational code to begin working.
             */
+            Console.Clear();
+            Console.WriteLine("1.Add or Remove");
+            Console.WriteLine("a. To add a name from the list use | + |");
+            Console.WriteLine("b. To remove a name from the list use  | - |");
+            Console.WriteLine("c. To exit from this program use | e |");
+            List<string> theList = new List<string>();
 
-            //List<string> theList = new List<string>();
-            //string input = Console.ReadLine();
-            //char nav = input[0];
-            //string value = input.substring(1);
 
-            //switch(nav){...}
+
+
+            bool strNameCheck = true;
+            while (strNameCheck == true)
+            {
+                foreach (var item in theList)
+                {
+                    Console.WriteLine("The List currently consists of " + item);
+                }
+                string strName = Console.ReadLine();
+                if (String.IsNullOrWhiteSpace(strName))
+                    {
+
+                    Console.WriteLine("Blank spaces not allowed");
+                }
+                else
+                {
+                string value = strName.Substring(1);
+                char nav = strName[0]; 
+
+                switch (nav)
+                {
+                    case '+':
+
+                        theList.Add(value);
+                        Console.WriteLine("Name Added");
+                        Console.WriteLine("You have added " + value + " to the list");
+                        Console.WriteLine(  "The List Capacity is "+ theList.Capacity);
+                        Console.WriteLine("The List count is " + theList.Count);
+                        Console.ReadLine();
+                        break;
+                     case '-':
+                        if( theList.Contains(value))
+                        { 
+                        theList.Remove(value);
+                        Console.WriteLine("Name Removed");
+                        Console.WriteLine("You have removed " + value + " to the list");
+                        Console.WriteLine("The List Capacity is " + theList.Capacity);
+                        Console.WriteLine("The List count is " + theList.Count);
+                        Console.ReadLine();
+                        }
+                        else
+                        {
+                            Console.WriteLine("List does not contain this value to remove" );
+                        }
+                        break;
+                    case 'e':
+                            Console.Clear();
+                            Main();
+                        return;
+                    default:
+                        Console.WriteLine("Invalid input");
+                        break;
+                }
+                }
+
+            }
         }
+            
+            //switch(nav){...}
+        
 
         /// <summary>
         /// Examines the datastructure Queue
@@ -117,5 +178,6 @@ namespace ShellProj_Datastructures_Memory
              */
         }
 
+      
     }
 }
