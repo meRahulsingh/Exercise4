@@ -6,18 +6,18 @@ using System.Threading.Tasks;
 
 namespace ShellProj_Datastructures_Memory
 {
-    class Program
+    public class Program
     {
         ///Swapna
         /// The main method, will handle the menues for the program
         /// </summary>
         /// <param name="args"></param>
-        static void Main()
+        public static void Main()
         {
             bool run = true;
             while (true)
             {
-
+                
                 Console.WriteLine("Please navigate through the menu by inputting the number \n(1, 2, 3 ,4, 0) of your choice"
                     + "\n1. Examine a List"
                     + "\n2. Examine a Queue"
@@ -64,7 +64,7 @@ namespace ShellProj_Datastructures_Memory
         /// <summary>
         /// Examines the datastructure List
         /// </summary>
-        static void ExamineList()
+        public static void ExamineList()
         {
             /*
              * Loop this method untill the user inputs something to exit to main menue.
@@ -75,31 +75,102 @@ namespace ShellProj_Datastructures_Memory
              * As a default case, tell them to use only + or -
              * Below you can see some inspirational code to begin working.
             */
+            Console.Clear();
+            Console.WriteLine("welcome to Examine list!...");
+            Console.WriteLine("\n Enter  the name starting with '+' or  '-' \n");
 
-            //List<string> theList = new List<string>();
-            //string input = Console.ReadLine();
-            //char nav = input[0];
-            //string value = input.substring(1);
+            List<string> theList = new List<string>();
+            bool check = true;
+            while (check)
+            {
 
-            //switch(nav){...}
+
+                string input =Console.ReadLine();
+                          
+                if (string.IsNullOrWhiteSpace(input))
+                {
+                    Console.WriteLine("Please enter  the correct input!...");
+                }
+                else
+                {
+                   
+                    char nav = input[0];
+                    string value = input.Substring(1);
+
+
+                    switch (nav)
+                    {
+
+
+
+                        case '+':
+                            Console.Clear();
+                            
+                            Console.WriteLine("\n Input added to the list...");
+                            theList.Add(value);
+                            Console.WriteLine("\n Capacity of the list after adding the input: {0}\n", theList.Capacity);
+                            Console.WriteLine("\n Count of the list after adding the input: {0}\n", theList.Count);
+
+                            break;
+
+                        case '-':
+                            
+                            
+                                theList.Remove(value);
+                                Console.WriteLine("\n Input removed from the list....");
+                                Console.WriteLine("\n Capacity of the list after removing the input: {0}", theList.Capacity);
+                                Console.WriteLine("\n Count of the list after removing the input: {0}", theList.Count);
+                                Console.ReadLine();
+                           
+                            break;
+
+                        default:
+                            Console.WriteLine("Invalid Input,Please enter the string starting with '+' or '-'`\n");
+                            break;
+                    }
+
+                    foreach (var item in theList)
+                    {
+                        Console.WriteLine("\n The items in the list are:\n" + item);
+                    }
+
+                    return;
+                }
+
+            }
         }
+
+
+        
 
         /// <summary>
         /// Examines the datastructure Queue
         /// </summary>
-        static void ExamineQueue()
+       public  static void ExamineQueue()
         {
             /*
              * Loop this method untill the user inputs something to exit to main menue.
              * Create a switch with cases to enqueue items or dequeue items
              * Make sure to look at the queue after Enqueueing and Dequeueing to see how it behaves
             */
+
+
+
+
+
+
+
+
+
+
+
+
         }
 
         /// <summary>
         /// Examines the datastructure Stack
         /// </summary>
-        static void ExamineStack()
+      public   static void ExamineStack()
         {
             /*
              * Loop this method until the user inputs something to exit to main menue.
@@ -108,7 +179,7 @@ namespace ShellProj_Datastructures_Memory
             */
         }
 
-        static void CheckParanthesis()
+        public static void CheckParanthesis()
         {
             /*
              * Use this method to check if the paranthesis in a string is Correct or incorrect.
