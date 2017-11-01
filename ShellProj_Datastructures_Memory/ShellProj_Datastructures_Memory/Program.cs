@@ -14,6 +14,9 @@ namespace ShellProj_Datastructures_Memory
         /// <param name="args"></param>
         public static void Main()
         {
+
+           
+
             bool run = true;
             while (true)
             {
@@ -153,6 +156,10 @@ namespace ShellProj_Datastructures_Memory
              * Create a switch with cases to enqueue items or dequeue items
              * Make sure to look at the queue after Enqueueing and Dequeueing to see how it behaves
             */
+
+            Queue q1 = new Queue();
+            q1.TestQueue();
+
 
 
 
