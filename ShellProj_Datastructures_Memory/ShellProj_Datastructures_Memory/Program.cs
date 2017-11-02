@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -88,73 +89,80 @@ namespace ShellProj_Datastructures_Memory
             bool strNameCheck = true;
             while (strNameCheck == true)
             {
-                foreach (var item in theList)
-                {
-                    Console.WriteLine("The List currently consists of " + item);
-                }
+               
                 string strName = Console.ReadLine();
                 if (String.IsNullOrWhiteSpace(strName))
-                    {
-
-                    Console.WriteLine("Blank spaces not allowed");
+                {
+                   Console.WriteLine("Blank spaces not allowed");
                 }
                 else
                 {
-                string value = strName.Substring(1);
-                char nav = strName[0]; 
+                    string value = strName.Substring(1);
+                    char nav = strName[0];
 
-                switch (nav)
-                {
-                    case '+':
+                    switch (nav)
+                    {
+                        case '+':
 
-                        theList.Add(value);
-                        Console.WriteLine("Name Added");
-                        Console.WriteLine("You have added " + value + " to the list");
-                        Console.WriteLine(  "The List Capacity is "+ theList.Capacity);
-                        Console.WriteLine("The List count is " + theList.Count);
-                        Console.ReadLine();
-                        break;
-                     case '-':
-                        if( theList.Contains(value))
-                        { 
-                        theList.Remove(value);
-                        Console.WriteLine("Name Removed");
-                        Console.WriteLine("You have removed " + value + " to the list");
-                        Console.WriteLine("The List Capacity is " + theList.Capacity);
-                        Console.WriteLine("The List count is " + theList.Count);
-                        Console.ReadLine();
-                        }
-                        else
-                        {
-                            Console.WriteLine("List does not contain this value to remove" );
-                        }
-                        break;
-                    case 'e':
+                            theList.Add(value);
+                            Console.WriteLine("Name Added");
+                            Console.WriteLine("You have added " + value + " to the list");
+                            Console.WriteLine("The List Capacity is " + theList.Capacity);
+                            Console.WriteLine("The List count is " + theList.Count);
+                            foreach (var item in theList)
+                            {
+                                Console.WriteLine("The List currently consists of " + item);
+                            }
+                            //Console.ReadLine();
+                            break;
+                        case '-':
+                            if (theList.Contains(value))
+                            {
+                                theList.Remove(value);
+                                Console.WriteLine("Name Removed");
+                                Console.WriteLine("You have removed " + value + " to the list");
+                                Console.WriteLine("The List Capacity is " + theList.Capacity);
+                                Console.WriteLine("The List count is " + theList.Count);
+                                foreach (var item in theList)
+                                {
+                                    Console.WriteLine("The List currently consists of " + item);
+                                }
+                                //Console.ReadLine();
+                            }
+                            else
+                            {
+                                Console.WriteLine("List does not contain this value to remove");
+                            }
+                            break;
+                        case 'e':
                             Console.Clear();
                             Main();
-                        return;
-                    default:
-                        Console.WriteLine("Invalid input");
-                        break;
+                            return;
+                        default:
+                            Console.WriteLine("Invalid input");
+                            break;
+                    }
                 }
-                }
+                //Console.ReadLine();
 
             }
         }
-            
-            //switch(nav){...}
-        
+
+        //switch(nav){...}
+
 
         /// <summary>
         /// Examines the datastructure Queue
         /// </summary>
         static void ExamineQueue()
         {
+            QueueClass qall = new QueueClass();
+            qall.TestingQ();
             /*
-             * Loop this method untill the user inputs something to exit to main menue.
-             * Create a switch with cases to enqueue items or dequeue items
-             * Make sure to look at the queue after Enqueueing and Dequeueing to see how it behaves
-            */
+  * Loop this method untill the user inputs something to exit to main menue.
+  * Create a switch with cases to enqueue items or dequeue items
+  * Make sure to look at the queue after Enqueueing and Dequeueing to see how it behaves
+ */
         }
 
         /// <summary>
@@ -178,6 +186,6 @@ namespace ShellProj_Datastructures_Memory
              */
         }
 
-      
+
     }
 }
