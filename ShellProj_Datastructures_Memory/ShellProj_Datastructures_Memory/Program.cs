@@ -157,8 +157,7 @@ namespace ShellProj_Datastructures_Memory
              * Make sure to look at the queue after Enqueueing and Dequeueing to see how it behaves
             */
 
-            Queue q1 = new Queue();
-            q1.TestQueue();
+          
 
 
 
