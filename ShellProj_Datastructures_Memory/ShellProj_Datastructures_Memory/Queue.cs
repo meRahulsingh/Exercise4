@@ -66,7 +66,7 @@ namespace ShellProj_Datastructures_Memory
                     case '3': return;
 
                     default:
-                        Console.WriteLine("\n Invalid input,please enter a correct input..\n");
+                        Console.WriteLine("\n Invalid input,please enter a correct input...\n");
                         break;
 
                          }
