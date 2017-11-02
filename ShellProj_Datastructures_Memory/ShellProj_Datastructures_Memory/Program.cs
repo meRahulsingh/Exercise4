@@ -15,10 +15,10 @@ namespace ShellProj_Datastructures_Memory
         public static void Main()
         {
 
-           
 
+            Queue q1 = new Queue();
             bool run = true;
-            while (true)
+            while (run)
             {
                 
                 Console.WriteLine("Please navigate through the menu by inputting the number \n(1, 2, 3 ,4, 0) of your choice"
@@ -44,6 +44,7 @@ namespace ShellProj_Datastructures_Memory
                         break;
                     case '2':
                         ExamineQueue();
+                        q1.TestQueue();
                         break;
                     case '3':
                         ExamineStack();
@@ -80,16 +81,23 @@ namespace ShellProj_Datastructures_Memory
             */
             Console.Clear();
             Console.WriteLine("welcome to Examine list!...");
-            Console.WriteLine("\n Enter  the name starting with '+' or  '-' \n");
+            Console.WriteLine("\n Enter  the name starting with '+'  (To Add)");
+            Console.WriteLine("\n Enter  the name starting with '-'  (To Remove)");
+            Console.WriteLine("\n To return to main menu,enter  '?' ");
 
             List<string> theList = new List<string>();
             bool check = true;
-            while (check)
+            while (check==true)
             {
 
+                foreach (var item in theList)
+                {
+                    Console.WriteLine("The items in the list are:\n" + item);
+                }
 
-                string input =Console.ReadLine();
-                          
+                Console.WriteLine("Enter the input starting with '+' or '-'..\n");
+                string input = Console.ReadLine();
+
                 if (string.IsNullOrWhiteSpace(input))
                 {
                     Console.WriteLine("Please enter  the correct input!...");
@@ -107,7 +115,7 @@ namespace ShellProj_Datastructures_Memory
 
 
                         case '+':
-                            Console.Clear();
+                           
                             
                             Console.WriteLine("\n Input added to the list...");
                             theList.Add(value);
@@ -126,18 +134,16 @@ namespace ShellProj_Datastructures_Memory
                                 Console.ReadLine();
                            
                             break;
+                        case '?': return;
 
                         default:
                             Console.WriteLine("Invalid Input,Please enter the string starting with '+' or '-'`\n");
                             break;
                     }
 
-                    foreach (var item in theList)
-                    {
-                        Console.WriteLine("\n The items in the list are:\n" + item);
-                    }
+                    
 
-                    return;
+                   
                 }
 
             }
@@ -156,21 +162,7 @@ namespace ShellProj_Datastructures_Memory
              * Create a switch with cases to enqueue items or dequeue items
              * Make sure to look at the queue after Enqueueing and Dequeueing to see how it behaves
             */
-
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
+        
         }
 
         /// <summary>
