@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ShellProj_Datastructures_Memory
 {
-    class QueueClass
+  public  class QueueClass
     {
         public void TestingQ()
         {

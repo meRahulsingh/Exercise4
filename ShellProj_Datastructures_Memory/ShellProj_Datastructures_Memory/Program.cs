@@ -170,11 +170,55 @@ namespace ShellProj_Datastructures_Memory
         /// </summary>
         static void ExamineStack()
         {
-            /*
-             * Loop this method until the user inputs something to exit to main menue.
-             * Create a switch with cases to push or pop items
-             * Make sure to look at the stack after pushing and and poping to see how it behaves
-            */
+
+            Console.WriteLine("To input a word to reverse press | + |");
+            Console.WriteLine("To exit the program press | 0 |");
+            
+            bool bCheck = true;
+            while (bCheck)
+            {
+                string input = Console.ReadLine();
+                if (!string.IsNullOrWhiteSpace(input))
+                { 
+                string Checkinput = input.Substring(1);
+                char nav = input[0];
+
+                switch (nav)
+                {
+                    case '+':
+                        {
+                            Console.Clear();
+                            //Console.WriteLine("Enter a word  to be reversed ");
+                            //string strStack = Console.ReadLine();
+                            Stack<string> sstack = new Stack<string>();
+                            sstack.Push(Checkinput);
+                            Stack<char> newStack = new Stack<char>(Checkinput.ToCharArray());
+                            Console.WriteLine("Below is your text reversed");
+                            while (newStack.Count > 0)
+                            {
+                                Console.Write(newStack.Pop());
+                            }
+                            Console.ReadLine();
+                        }
+                        break;
+                    case '0':
+                        {
+                            Console.Clear();
+                            Main();
+                        }
+                        break;
+                }
+                }
+                else
+                {
+                    Console.WriteLine("input value incorrect");
+                }
+                /*
+                 * Loop this method until the user inputs something to exit to main menue.
+                 * Create a switch with cases to push or pop items
+                 * Make sure to look at the stack after pushing and and poping to see how it behaves
+                */
+            }
         }
 
         static void CheckParanthesis()
