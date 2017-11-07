@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -41,10 +42,10 @@ namespace ShellProj_Datastructures_Memory
                 {
                     case '1':
                         ExamineList();
-                        break;
+                        break;	
                     case '2':
                         ExamineQueue();
-                        q1.TestQueue();
+                        //q1.TestQueue();
                         break;
                     case '3':
                         ExamineStack();
@@ -162,7 +163,7 @@ namespace ShellProj_Datastructures_Memory
              * Create a switch with cases to enqueue items or dequeue items
              * Make sure to look at the queue after Enqueueing and Dequeueing to see how it behaves
             */
-        
+           
         }
 
         /// <summary>
@@ -175,7 +176,85 @@ namespace ShellProj_Datastructures_Memory
              * Create a switch with cases to push or pop items
              * Make sure to look at the stack after pushing and and poping to see how it behaves
             */
-        }
+            Stack<string> testStack = new Stack<string>();
+            Console.WriteLine("\n !..Welcome to Examine Stack...");
+            Console.WriteLine("\n To reverse a word press | + |");
+            Console.WriteLine("\n To exit the program press | 0 |");
+
+            do
+                           {
+                Console.WriteLine("\n Press 1 to Push," +
+                "\n Press 2 to Pop,\n Press 3 to Reverse a String\n press 0 to quit ");
+                char input = ' '; //Creates the character input to be used with the switch-case below.
+                                try
+                {
+                input = Console.ReadLine()[0]; //Tries to set input to the first char in an input line
+                                    }
+                                catch (IndexOutOfRangeException) //If the input line is empty, we ask the users for some input.
+                {
+                    Console.Clear();
+                    Console.WriteLine("Please enter some input!");
+                                    }
+
+                switch (input)
+                 {
+                                      case '1':
+ Console.WriteLine("Please provide input:");
+                    string name = Console.ReadLine();
+                    testStack.Push(name);
+                    foreach (var item in testStack)
+                                               {
+                    Console.WriteLine("Names in the stack are " + item);
+                                            }
+                    Console.WriteLine("Count in the stack: " + testStack.Count);
+                                            break;
+                                     case '2':
+                         if (testStack.Count > 0)
+                                                {
+                        Console.WriteLine("Implementing Last In First Out");
+                        Console.WriteLine("Name removed from the stack is " + testStack.Pop());
+                                                    foreach (var item in testStack)
+                                                        {
+                            Console.WriteLine("Names in the stack are " + item);
+                                                       }
+                        Console.WriteLine("Count in the stack :" + testStack.Count);
+                                               }
+                                            else
+                         {
+                        Console.WriteLine("Stack is empty,name cannot be deleted");
+                                                }
+                                           break;
+                                        case '3':
+ Console.WriteLine("Enter some input value");
+                    string inputString = Console.ReadLine();
+                    Stack < string > inputStack = new Stack<string>();
+                                            for (int i = 0; i < inputString.Length; i++)
+                        inputStack.Push(inputString.Substring(i, 1));
+                    string resultstring = string.Empty;
+                                            for (int i = 0; i < inputString.Length; i++)
+                    resultstring += inputStack.Pop();
+                    Console.WriteLine("Reversed string is " + resultstring);
+                                            break;
+                    
+                    
+                                   }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            }
+
+            }
 
         public static void CheckParanthesis()
         {
